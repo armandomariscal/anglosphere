@@ -3,14 +3,13 @@
     "version": "1.0.0",
     "main": "index.js",
     "scripts": {
+        "type-check": "tsc --noEmit",
         "dev": "ts-node src/server.ts",
         "build": "tsc",
         "start": "node dist/server.js",
-
         "db:up": "cd ../docker && docker-compose up -d",
         "db:down": "cd ../docker && docker-compose down",
         "db:reset": "cd ../docker && docker-compose down -v && docker-compose up -d",
-
         "start:full": "npm run db:up && npm run dev"
     },
     "keywords": [],
@@ -19,9 +18,11 @@
     "description": "",
     "dependencies": {
         "dotenv": "^17.4.1",
+        "express": "^5.2.1",
         "mongodb": "^7.1.1"
     },
     "devDependencies": {
+        "@types/express": "^5.0.6",
         "@types/node": "^25.5.2",
         "ts-node": "^10.9.2",
         "typescript": "^6.0.2"
